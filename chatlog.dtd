@@ -1,0 +1,46 @@
+<!ENTITY nbsp "&#160;">
+
+<!ELEMENT chat (event | status | message)*>
+<!ATTLIST chat
+	xmlns   CDATA #FIXED "http://purl.org/net/ulf/ns/0.4-02"
+	account CDATA #REQUIRED
+	service CDATA #REQUIRED
+>
+
+<!ELEMENT event (div)*>
+<!ATTLIST event
+	sender CDATA #REQUIRED
+	time   CDATA #REQUIRED
+	type   CDATA #REQUIRED
+>
+
+<!ELEMENT status (div)*>
+<!ATTLIST status
+	sender CDATA #REQUIRED
+	time   CDATA #REQUIRED
+	type   CDATA #REQUIRED
+	alias  CDATA #IMPLIED
+>
+
+<!ELEMENT message (div)*>
+<!ATTLIST message
+	sender CDATA #REQUIRED
+	time   CDATA #REQUIRED
+	auto   CDATA #IMPLIED
+	alias  CDATA #IMPLIED
+>
+
+<!ELEMENT div (#PCDATA | span | a | br)*>
+
+<!ELEMENT span (#PCDATA | a | br | span)*>
+<!ATTLIST span
+	style CDATA #REQUIRED
+>
+
+<!ELEMENT a (#PCDATA | span | br)*>
+<!ATTLIST a
+	href  CDATA #REQUIRED
+	style CDATA #IMPLIED
+>
+
+<!ELEMENT br EMPTY>
